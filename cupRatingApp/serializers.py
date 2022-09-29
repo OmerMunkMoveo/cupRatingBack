@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from .models import Cup
 
-
+# this is the serializer for the Cup model
 class CupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cup
