@@ -7,9 +7,9 @@ from rest_framework.response import Response
 from .models import Cup
 from .serializers import CupSerializer
 
+
 @api_view(['GET', 'POST', 'PATCH', 'PUT', 'DELETE'])
 def cups(request):
-    print(request)
     if request.method == 'POST':
         serializer = CupSerializer(data=request.data)
         if serializer.is_valid():
@@ -26,3 +26,4 @@ def cups(request):
         cup_to_delete.delete()
         return Response(status=status.HTTP_200_OK, data={'message': f'Cup with the uId ${request.data["uId"]} has '
                                                                     f'deleted'})
+    # TODO: add the ability to update the cup
